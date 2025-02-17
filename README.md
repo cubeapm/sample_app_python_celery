@@ -1,10 +1,16 @@
-# Python Celery OpenTelemetry Instrumentation
+# Python Celery Instrumentation
 
-This is a sample app to demonstrate how to instrument Python Celery app with OpenTelemetry. This repository has a docker compose file to set up conveniently.
+This is a sample app to demonstrate how to instrument Python Celery app with **New Relic** and **OpenTelemetry**. This repository has a docker compose file to set up all these services conveniently.
 
-This repository is inentionally designed to work with any OpenTelemetry backend, not just CubeAPM. In fact, it can even work without any OpenTelemetry backend (by dumping traces to console, which is also the default behaviour).
+The code is organized into multiple branches. The main branch has the Celery app without any instrumentation. Other branches then build upon the main branch to add specific instrumentations as below:
 
-## Setup
+| Branch                                                                                         | Instrumentation | Code changes for instrumentation                                                                                |
+| ---------------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
+| [main](https://github.com/cubeapm/sample_app_python_celery/tree/main)         | None            | -                                                                                                               |
+| [newrelic](https://github.com/cubeapm/sample_app_python_celery/tree/newrelic) | New Relic       | [main...newrelic](https://github.com/cubeapm/sample_app_python_celery/compare/main...newrelic) |
+| [otel](https://github.com/cubeapm/sample_app_python_celery/tree/otel)         | OpenTelemetry   | [main...otel](https://github.com/cubeapm/sample_app_python_celery/compare/main...otel)         |
+
+# Setup
 
 Clone this repository and go to the project directory. Then run the following commands
 
@@ -18,8 +24,6 @@ docker compose up --build
 python3 send_task.py
 ```
 
-Traces are printed to console (where docker compose is running) by default. If you want to send traces to a backend tool, comment out the `OTEL_LOG_LEVEL` line and uncomment the `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` line in [docker-compose.yml](docker-compose.yml).
-
-## Contributing
+# Contributing
 
 Please feel free to raise PR for any enhancements - additional service integrations, library version updates, documentation updates, etc.

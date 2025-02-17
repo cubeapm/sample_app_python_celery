@@ -4,14 +4,6 @@ services:
     build:
       context: .
     container_name: cube_python_celery_celery
-    environment:
-      - OTEL_SERVICE_NAME=cube_sample_python_celery
-      - OTEL_EXPORTER_OTLP_COMPRESSION=gzip
-
-      # print traces on console
-      - OTEL_LOG_LEVEL=debug
-      # send traces to CubeAPM
-      # - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://host.docker.internal:4318/v1/traces
     depends_on:
       - redis
     restart: always
