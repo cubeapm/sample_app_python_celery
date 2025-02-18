@@ -30,6 +30,7 @@ def send_message(base64_encoded_body):
             "retries": 0,
             "origin": "gen78948@Dublin",
             "ignore_result": False,
+            # "traceparent": "00-502fc1211c9205bcf8cd557de33fdc0c-64dbdbaa0a1b1ec2-01",
         },
         "content-encoding": "utf-8",
         "content-type": "application/json",

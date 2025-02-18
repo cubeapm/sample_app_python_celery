@@ -11,6 +11,8 @@ ADD . .
 
 RUN pip install -r requirements.txt
 
+RUN opentelemetry-bootstrap -a install
+
 EXPOSE 8000
 
 CMD ["celery", "-A", "celeryapp.celery_app", "worker", "--loglevel=info"]
